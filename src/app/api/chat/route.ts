@@ -29,10 +29,11 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(response.choices[0].message);
-  } catch (error) {
+  } catch (error: any) {
     console.error("Llama.cpp connection error:", error);
+    // Expose the real error message to the frontend for debugging
     return NextResponse.json(
-      { error: 'Tutor server is currently offline or unreachable.' }, 
+      { error: `Debug Error: ${error.message || JSON.stringify(error)}` }, 
       { status: 500 }
     );
   }
