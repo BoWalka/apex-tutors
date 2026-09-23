@@ -1,21 +1,14 @@
-import { Hero } from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import WhyUs from "@/components/WhyUs";
-import Testimonials from "@/components/Testimonials";
-import ContactForm from "@/components/ContactForm";
 import TutorChat from "@/components/TutorChat";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <About />
-      <Services />
-      <WhyUs />
-      <Testimonials />
+    <main className="min-h-screen p-8 bg-slate-50">
+      <div className="text-center mb-6">
+        <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">
+          🧪 Testing Mode Active
+        </span>
+      </div>
       <TutorChat />
-      <ContactForm />
     </main>
   );
 }

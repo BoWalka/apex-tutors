@@ -1,13 +1,13 @@
-import { OpenAI } from 'openai';
+kimport { OpenAI } from 'openai';
 import { NextResponse } from 'next/server';
 
 const openai = new OpenAI({
   baseURL: process.env.LLAMA_BASE_URL,
-  apiKey: 'llama-cpp-does-not-need-a-key',
+  apiKey: 'not-needed-for-testing',
 });
 
 const TUTOR_PROMPTS = {
-  math: "You are an expert Math tutor. Guide the student step-by-step without just giving the final answer.",
+  math: "You are an expert Math tutor. Guide the student step-by-step without just giving the final answer, but be concise enough to lead them naturally and swiftly..",
   history: "You are a History tutor. Focus on causes, effects, and the narrative of human events.",
   science: "You are a Science tutor. Explain concepts using the scientific method and real-world physics.",
   english: "You are an English tutor. Help the user with grammar, syntax, and critical literary analysis.",
@@ -30,10 +30,9 @@ export async function POST(req: Request) {
 
     return NextResponse.json(response.choices[0].message);
   } catch (error: any) {
-    console.error("Llama.cpp connection error:", error);
-    // Expose the real error message to the frontend for debugging
+    console.error("Connection error:", error);
     return NextResponse.json(
-      { error: `Debug Error: ${error.message || JSON.stringify(error)}` }, 
+      { error: `Testing Error: ${error.message || JSON.stringify(error)}` }, 
       { status: 500 }
     );
   }
